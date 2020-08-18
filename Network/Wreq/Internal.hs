@@ -45,16 +45,10 @@ import qualified Network.Wreq.Internal.Lens as Lens
 import qualified Network.Wreq.Internal.AWS as AWS (signRequest,signRequestFull)
 import qualified Network.Wreq.Internal.OAuth1 as OAuth1 (signRequest)
 import qualified Network.Wreq.Lens as Lens hiding (checkResponse)
-
--- This mess allows this module to continue to load during interactive
--- development in ghci :-(
-#if defined(VERSION_base)
-import Paths_wreq (version)
-#else
 import Data.Version (Version(..))
+
 version :: Version
 version = Version [0] ["wip"]
-#endif
 
 defaultManagerSettings :: HTTP.ManagerSettings
 defaultManagerSettings = tlsManagerSettings
